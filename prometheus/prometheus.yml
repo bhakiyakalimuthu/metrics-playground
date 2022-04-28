@@ -1,0 +1,22 @@
+global:
+  scrape_interval:     15s
+
+scrape_configs:
+#  - job_name: "prometheus"
+#    scrape_interval: 5s
+#    static_configs:
+#      - targets:
+#        - localhost:9090
+
+  - job_name: proxyd
+    scrape_interval: 5s
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - localhost:9761
+
+#remote_write:
+#  - url: "https://prometheus-prod-01-eu-west-0.grafana.net/api/prom/push"
+#    basic_auth:
+#      username: "410114"
+#      password: "eyJrIjoiMThmNGI5NTY1MWY1OTYxMzczOTgyMWE1YjkxZjBmNTE4NGQ5NWRmMSIsIm4iOiJldWxlcjYiLCJpZCI6NjM4NDAyfQ=="
